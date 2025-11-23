@@ -1,22 +1,7 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import aboutImage from "@/assets/mina-about.png";
 
 export function About() {
-  const [language, setLanguage] = useState<"en" | "ar">("en");
-
-  const content = {
-    en: {
-      title: "About Me",
-      text: "Graduated from Assiut University, Faculty of Computers and Information. I specialize in Full Stack Web Development using .NET technologies, Angular, clean architecture, SOLID principles, and scalable software design. Passionate about creating efficient, secure, and maintainable applications.",
-    },
-    ar: {
-      title: "نبذة عني",
-      text: "خريج كلية الحاسبات والمعلومات – جامعة أسيوط. متخصص في تطوير تطبيقات الويب باستخدام .NET وأطر عمل حديثة مثل Angular، ومهتم ببناء أنظمة مرنة وآمنة وسهلة الصيانة، مع تطبيق مبادئ SOLID و Clean Architecture.",
-    },
-  };
-
   return (
     <section id="about" className="py-20 relative">
       <div className="absolute inset-0 -z-10">
@@ -26,35 +11,14 @@ export function About() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            {content[language].title}
+            About Me
           </h2>
-          <div className="flex justify-center gap-2">
-            <Button
-              variant={language === "en" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setLanguage("en")}
-            >
-              English
-            </Button>
-            <Button
-              variant={language === "ar" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setLanguage("ar")}
-            >
-              العربية
-            </Button>
-          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Card className="p-8 glass-card animate-fade-in">
-            <p
-              className={`text-lg leading-relaxed ${
-                language === "ar" ? "text-right" : "text-left"
-              }`}
-              dir={language === "ar" ? "rtl" : "ltr"}
-            >
-              {content[language].text}
+            <p className="text-lg leading-relaxed">
+              Graduated from Assiut University, Faculty of Computers and Information. I specialize in Full Stack Web Development using .NET technologies, Angular, clean architecture, SOLID principles, and scalable software design. Passionate about creating efficient, secure, and maintainable applications.
             </p>
           </Card>
 

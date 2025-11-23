@@ -44,7 +44,7 @@ export function Hero() {
                 asChild
               >
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/mina-salah-5a52bb261/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -60,7 +60,7 @@ export function Hero() {
                 asChild
               >
                 <a
-                  href="https://github.com"
+                  href="https://github.com/minasalah555"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -75,7 +75,7 @@ export function Hero() {
                 className="gap-2 hover:scale-105 transition-transform"
                 asChild
               >
-                <a href="mailto:mina.salah@example.com">
+                <a href="mailto:minasalah713@gmail.com">
                   <Mail className="h-5 w-5" />
                   Email
                 </a>
@@ -102,7 +102,7 @@ export function Hero() {
               <img
                 src={heroImage}
                 alt="Mina Salah"
-                className="relative rounded-3xl shadow-2xl border-4 border-accent/20 w-full object-cover aspect-square"
+                className="relative rounded-3xl shadow-2xl border-4 border-accent/20 w-full object-cover aspect-[3/4]"
               />
             </div>
           </div>

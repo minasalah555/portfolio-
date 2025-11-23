@@ -47,7 +47,12 @@ export function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent/10 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(item.href);
+                  element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="px-4 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent/10 transition-colors cursor-pointer"
               >
                 {item.label}
               </a>
@@ -80,8 +85,13 @@ export function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-lg text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent/10 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMobileMenuOpen(false);
+                  const element = document.querySelector(item.href);
+                  element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="block px-4 py-3 rounded-lg text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent/10 transition-colors cursor-pointer"
               >
                 {item.label}
               </a>
