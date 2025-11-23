@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 213 63% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 63% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 63% 11%;
+
+    --primary: 125 47% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 213 63% 11%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 166 100% 70%;
+    --accent-foreground: 213 63% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 125 47% 33%;
+
+    --radius: 0.75rem;
+
+    /* Custom portfolio colors */
+    --hero-gradient-from: 125 47% 33%;
+    --hero-gradient-to: 166 100% 70%;
+    --glass-bg: 0 0% 100% / 0.7;
+    --glow: 125 47% 33% / 0.3;
+  }
+
+  .dark {
+    --background: 213 63% 11%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 30% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 30% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 166 100% 70%;
+    --primary-foreground: 213 63% 11%;
+
+    --secondary: 220 30% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 30% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 125 47% 43%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 30% 25%;
+    --input: 220 30% 25%;
+    --ring: 166 100% 70%;
+
+    /* Custom portfolio colors - dark mode */
+    --hero-gradient-from: 166 100% 70%;
+    --hero-gradient-to: 125 47% 43%;
+    --glass-bg: 220 30% 15% / 0.7;
+    --glow: 166 100% 70% / 0.3;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+}
+
+@layer utilities {
+  .glow-effect {
+    box-shadow: 0 0 20px hsl(var(--glow)), 0 0 40px hsl(var(--glow));
+  }
+
+  .glass-card {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
