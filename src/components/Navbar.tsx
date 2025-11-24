@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -16,10 +16,24 @@ const navItems = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Detect active section
+      const sections = navItems.map(item => item.href.substring(1));
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -27,18 +41,17 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-card shadow-lg" : "bg-transparent"
-      }`}
+      className={`navbar-glass ${isScrolled ? 'navbar-scrolled' : ''}`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo with Icon */}
           <a
             href="#home"
-            className="text-xl font-bold gradient-text hover:scale-105 transition-transform"
+            className="flex items-center gap-2 text-xl font-bold hover:scale-105 transition-transform"
           >
-            MS
+            <Code className="h-5 w-5 text-primary" />
+            <span className="gradient-text">Mina Salah</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -52,7 +65,7 @@ export function Navbar() {
                   const element = document.querySelector(item.href);
                   element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent/10 transition-colors cursor-pointer"
+                className={`nav-link ${activeSection === item.href.substring(1) ? 'nav-link-active' : ''}`}
               >
                 {item.label}
               </a>
@@ -91,7 +104,7 @@ export function Navbar() {
                   const element = document.querySelector(item.href);
                   element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className="block px-4 py-3 rounded-lg text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent/10 transition-colors cursor-pointer"
+                className={`nav-link-mobile ${activeSection === item.href.substring(1) ? 'nav-link-active' : ''}`}
               >
                 {item.label}
               </a>
