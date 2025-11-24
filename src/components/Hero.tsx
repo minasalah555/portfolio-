@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Download, Eye, ChevronDown, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, Download, Eye, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function Hero() {
@@ -140,14 +140,6 @@ export function Hero() {
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />
-            </a>
-
-            <a
-              href="tel:+201234567890"
-              className="social-icon-circle"
-              aria-label="Phone"
-            >
-              <Phone className="h-5 w-5" />
             </a>
           </div>
         </div>

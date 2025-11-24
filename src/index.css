@@ -693,15 +693,15 @@ All colors MUST be HSL.
   /* Social Icons */
   .social-links-hero {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
     justify-content: center;
     margin-top: 1.5rem;
     animation: fade-in-up 0.8s ease-out 0.8s both;
   }
 
   .social-icon-circle {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: hsl(var(--muted) / 0.3);
     backdrop-filter: blur(10px);
@@ -723,7 +723,7 @@ All colors MUST be HSL.
   /* Scroll Down Indicator */
   .scroll-down-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: 2.5rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
