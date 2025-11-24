@@ -46,7 +46,7 @@ export function Skills() {
   return (
     <section id="skills" className="py-20 relative">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-glow-pulse" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -54,6 +54,9 @@ export function Skills() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
             Skills & Technologies
           </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            A comprehensive overview of my technical expertise and the tools I work with
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -62,23 +65,23 @@ export function Skills() {
             return (
               <Card
                 key={index}
-                className="glass-card hover:glow-effect transition-all duration-300 animate-fade-in"
+                className="glass-card hover:glow-effect hover:scale-105 transition-all duration-300 animate-fade-in group cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="p-3 bg-primary/10 rounded-xl">
-                      <Icon className="h-6 w-6 text-primary" />
+                    <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
+                      <Icon className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
                     </div>
                   </div>
-                  <CardTitle className="text-xl">{category.title}</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{category.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg border border-accent/20 hover:bg-accent/20 transition-colors"
+                        className="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg border border-accent/20 hover:bg-accent/20 hover:scale-105 transition-all cursor-pointer"
                       >
                         {skill}
                       </span>
