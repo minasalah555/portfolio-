@@ -1,7 +1,44 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download, Eye, ChevronDown, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export function Hero() {
+  const [typedText, setTypedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const titles = [
+    "Software Engineer",
+    "Competitive Programmer",
+    "Problem Solver",
+    "ITI Graduate"
+  ];
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const currentTitle = titles[loopNum % titles.length];
+      
+      if (isDeleting) {
+        setTypedText(currentTitle.substring(0, typedText.length - 1));
+        setTypingSpeed(50);
+      } else {
+        setTypedText(currentTitle.substring(0, typedText.length + 1));
+        setTypingSpeed(150);
+      }
+
+      if (!isDeleting && typedText === currentTitle) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && typedText === "") {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [typedText, isDeleting, loopNum, typingSpeed]);
+
   return (
     <section
       id="home"
@@ -37,9 +74,9 @@ export function Hero() {
             Mina Salah
           </h1>
           
-          {/* Subtitle with Animated Cursor */}
+          {/* Subtitle with Animated Typing Effect */}
           <div className="hero-subtitle">
-            <span id="typed-text">Full Stack .NET Developer</span>
+            <span id="typed-text">{typedText}</span>
             <span className="typing-cursor">|</span>
           </div>
           
