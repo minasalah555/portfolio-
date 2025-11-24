@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, Code } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -12,6 +12,16 @@ const navItems = [
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
+
+// Logo Component with M
+const Logo = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="16" cy="16" r="15" stroke="currentColor" strokeWidth="2" className="text-primary"/>
+    <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="currentColor" fontSize="18" fontWeight="700" className="text-primary">
+      M
+    </text>
+  </svg>
+);
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,13 +55,13 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo with Icon */}
+          {/* Logo with Custom M Icon */}
           <a
             href="#home"
             className="flex items-center gap-2 text-xl font-bold hover:scale-105 transition-transform"
           >
-            <Code className="h-5 w-5 text-primary" />
-            <span className="gradient-text">Mina Salah</span>
+            <Logo />
+            <span className="gradient-text navbar-brand">Mina Salah</span>
           </a>
 
           {/* Desktop Navigation */}
