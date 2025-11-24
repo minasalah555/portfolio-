@@ -253,4 +253,163 @@ All colors MUST be HSL.
     40% { transform: translate(-50%, -10px); }
     60% { transform: translate(-50%, -5px); }
   }
+
+  /* Hero Section Styles */
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .floating-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.05;
+    animation: float-shape 15s ease-in-out infinite;
+  }
+
+  .shape-1 {
+    width: 300px;
+    height: 300px;
+    background: hsl(var(--primary));
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+  }
+
+  .shape-2 {
+    width: 400px;
+    height: 400px;
+    background: hsl(var(--accent));
+    top: 50%;
+    right: 10%;
+    animation-delay: 5s;
+  }
+
+  .shape-3 {
+    width: 250px;
+    height: 250px;
+    background: hsl(var(--primary));
+    bottom: 15%;
+    left: 30%;
+    animation-delay: 10s;
+  }
+
+  @keyframes float-shape {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+      transform: translate(30px, -30px) rotate(120deg);
+    }
+    66% {
+      transform: translate(-20px, 20px) rotate(240deg);
+    }
+  }
+
+  .parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .particle-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--accent));
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: particle-float 20s linear infinite;
+  }
+
+  .particle:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+  }
+
+  .particle:nth-child(2) {
+    left: 30%;
+    top: 60%;
+    animation-delay: 4s;
+  }
+
+  .particle:nth-child(3) {
+    left: 50%;
+    top: 10%;
+    animation-delay: 8s;
+  }
+
+  .particle:nth-child(4) {
+    left: 70%;
+    top: 70%;
+    animation-delay: 12s;
+  }
+
+  .particle:nth-child(5) {
+    left: 90%;
+    top: 40%;
+    animation-delay: 16s;
+  }
+
+  @keyframes particle-float {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    90% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(-1000px) translateX(100px);
+      opacity: 0;
+    }
+  }
+
+  /* Hero Subtitle Animation */
+  .hero-subtitle {
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-subtitle .cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Social Links Hover Effect */
+  .social-link {
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
 }
+
